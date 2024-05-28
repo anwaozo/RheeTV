@@ -1,0 +1,60 @@
+{% extends "layouts/base.html" %} {% set previousTv = collections.tvs |
+getPreviousCollectionItem %} {% set nextTv = collections.tvs |
+getNextCollectionItem %} {% block content %}
+<div>
+  <div id="Top" class="inner-hero all-post">
+    <div class="container w-container"></div>
+
+    <img
+      src="/images/textYourHost.png"
+      width="200"
+      class="image-12"
+      sizes="200px"
+      alt=""
+    />
+  </div>
+  <div class="tv-host-section w-clearfix">
+    <div class="w-container">
+      <div class="row w-row">
+        <div
+          style="
+            max-width: 900px;
+            height: 315;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          <iframe
+            id="youtube-iframe"
+            style="aspect-ratio: 16/9; width: 100%"
+            width="100%"
+            src="{{ videoEmbededlink }}"
+            title="YouTube video player"
+            frameborder="0"
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture; web-share=false"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+        <h1 class="heading-5">{{ title }}</h1>
+      </div>
+    </div>
+    <div class="w-container">
+      <div class="w-row">
+        {% if previousTv %}
+        <div class="w-col w-col-6">
+          <a href="{{ previousTv.url }}" class="button-2 w-button"
+            >Previous Tv</a
+          >
+        </div>
+        {% endif %} {% if nextTv %}
+        <div class="w-col w-col-6">
+          <a href="{{ nextTv.url }}" class="button-2 w-button">Next Tv</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

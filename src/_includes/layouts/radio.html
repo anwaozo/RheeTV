@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %} {% block content %} {% set radios =
+collections.radios | reverse %}
+<div>
+  <div
+    id="Top"
+    class="inner-hero w-clearfix"
+    style="background-image: url('{{ RadioSection.backgroundImage }}')"
+  >
+    <div class="container w-container"></div>
+    <div class="div-block-right">
+      <img
+        src="{{ RadioSection.image }}"
+        width="450"
+        sizes="(max-width: 991px) 50vw, 450px"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="radio-main w-clearfix">
+    <div class="w-container">
+      <div class="row w-row">
+        {% for radios in radios %}
+        <a href="{{ radios.url }}">
+          <div class="w-col w-col-6">
+            <img
+              src="{{ radios.data.thumbnail }}"
+              sizes="(max-width: 479px) 96vw, (max-width: 767px) 67vw, (max-width: 991px) 39vw, 41vw"
+              alt=""
+              class="image-7"
+            /><img
+              src="/images/youtube.png"
+              width="50"
+              alt=""
+              class="play-image"
+            />
+            <h1 class="heading-5">{{ radios.data.title }}</h1>
+          </div>
+        </a>
+
+        {% endfor %}
+      </div>
+
+      <a
+        href="https://www.royaltiesatx.com/"
+        target="_blank"
+        class="link-block-2 w-inline-block"
+        ><img
+          src="/images/IMG_9575.jpg"
+          width="250"
+          sizes="(max-width: 479px) 100vw, 250px"
+          srcset="
+            /images/IMG_9575-p-500.jpeg   500w,
+            /images/IMG_9575-p-800.jpeg   800w,
+            /images/IMG_9575-p-1080.jpeg 1080w,
+            /images/IMG_9575.jpg         1440w
+          "
+          alt=""
+          class="image-10 image-14"
+      /></a>
+      <div class="text-block-6">© Royalties ATX</div>
+    </div>
+    <a href="#Top" class="button-4 w-button"></a>
+  </div>
+</div>
+
+{% endblock %}

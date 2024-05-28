@@ -1,0 +1,149 @@
+{% extends "layouts/base.html" %} {% block content %} {% set posts =
+collections.posts | reverse %}
+<div>
+  <div>
+    <div
+      data-poster-url="videos/Home-Video-poster-00001.jpg"
+      data-video-urls="videos/Home-Video-transcode.mp4,videos/Home-Video-transcode.webm"
+      data-autoplay="true"
+      data-loop="true"
+      data-wf-ignore="true"
+      class="background-video w-background-video w-background-video-atom"
+    >
+      <video
+        id="08797473-d11e-e550-6c2b-9838fb8b49f0-video"
+        autoplay=""
+        loop=""
+        style="background-image: url('videos/Home-Video-poster-00001.jpg')"
+        muted=""
+        playsinline=""
+        data-wf-ignore="true"
+        data-object-fit="cover"
+      >
+        <source src="{{ intro.videoGif }}" data-wf-ignore="true" />
+        <source src="{{ intro.videoGif }}" data-wf-ignore="true" />
+      </video>
+
+      <div class="hero-table w-row">
+        <div class="w-col w-col-2"></div>
+        <div class="w-col w-col-8">
+          <h1 class="heading">{{ intro.heading }}</h1>
+          <a href="#Latest-Post" class="button w-button"
+            >{{ intro.buttonText }}
+          </a>
+        </div>
+        <div class="w-col w-col-2"></div>
+      </div>
+      <div class="pop-up">
+        <a href="#" class="link-2" data-ix="close-pop-up">X Close</a>
+        <div class="form-block-2 w-form">
+          <form
+            id="email-form"
+            name="email-form"
+            data-name="Email Form"
+            method="get"
+            data-wf-page-id="5b91c83bc4d8a36bfb5d4a1b"
+            data-wf-element-id="4bc42d2c-1dd2-29f1-afcc-18ae216c1258"
+          >
+            <h1 class="heading-pop-up">Sign Up for my Newsletter</h1>
+            <label for="name" class="field-label-6">Name</label
+            ><input
+              class="text-field-5 w-input"
+              maxlength="256"
+              name="name"
+              data-name="Name"
+              placeholder=""
+              type="text"
+              id="name"
+            /><label for="email" class="field-label-5">Email Address</label
+            ><input
+              class="text-field-6 w-input"
+              maxlength="256"
+              name="email"
+              data-name="Email"
+              placeholder=""
+              type="email"
+              id="email"
+              required=""
+            /><input
+              type="submit"
+              data-wait="Please wait..."
+              class="submit-button-2 w-button"
+              value="Submit"
+            />
+          </form>
+          <div class="w-form-done">
+            <div>Thank you! Your submission has been received!</div>
+          </div>
+          <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="Latest-Post" class="section">
+    <div>
+      <h1 class="lastpost-heading">Latest Posts</h1>
+      <div class="div-block-2"></div>
+    </div>
+    <div>
+      <div class="w-container"></div>
+    </div>
+    <div class="w-dyn-list">
+      <div role="list" class="collection-list-2 w-dyn-items w-row">
+        {% for posts in posts %}
+        <div role="listitem" class="thumbnail w-dyn-item w-col w-col-4">
+          <a href="{{ posts.url }}" class="featured-wrapper w-inline-block">
+            <div>
+              <div class="cateorgy-date-tag">{{ posts.date | date }}</div>
+              <div
+                style="background-image: url('{{ posts.data.image }}')"
+                class="featured-image"
+              ></div>
+            </div>
+            <div class="feature-text">
+              <div class="feature-details">
+                <div></div>
+              </div>
+              <h1 class="featured-tile">{{ posts.data.title }}</h1>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- <div class="w-dyn-empty">
+        <div>No items found.</div>
+      </div> -->
+    </div>
+    <div class="w-container">
+      <a href="/all-post" class="button-2 w-button">SEE ALL POST</a>
+    </div>
+  </div>
+  <div class="about-section">
+    <div class="row-about w-row">
+      <div class="w-col w-col-6">
+        <img
+          src="{{ about.image }}"
+          alt=""
+          sizes="(max-width: 479px) 92vw, 300px"
+          class="image"
+        />
+      </div>
+      <div class="column w-col w-col-6">
+        <h1 class="about-heading">{{ about.heading }}</h1>
+        <p class="about-text">{{ content | safe }}</p>
+        <a href="/story" class="link">READ MORE</a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1 class="instagram-heading">Instagram</h1>
+    <div class="div-block-2"></div>
+    <div class="html-embed w-embed w-script">
+      <script src="https://apps.elfsight.com/p/platform.js" defer=""></script>
+      <div class="elfsight-app-78614094-5a14-4c59-9e65-8907050d9315"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

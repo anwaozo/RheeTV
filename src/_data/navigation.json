@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "text": "ABOUT",
+      "url": "/story"
+    },
+    {
+      "text": "TV HOST",
+      "url": "/tv-host"
+    },
+    {
+      "text": "KAZI",
+      "url": "/kazi"
+    },
+    {
+      "text": "BLOG",
+      "url": "/all-post"
+    },
+    {
+      "text": "MEDIA KIT",
+      "url": "https://assets.website-files.com/5b91c83bc4d8a371505d4a1a/61e72029b7dc4a63b13fd5ad_RTV%20Media%20Kit.pdf"
+    },
+    {
+      "text": "RADIO",
+      "url": "/radio"
+    },
+    {
+      "text": "CONTACT",
+      "url": "/contact"
+    }
+  ]
+}

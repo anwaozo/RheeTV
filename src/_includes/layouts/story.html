@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %} {% block content %}
+<div>
+  <div
+    class="div-block-23"
+    style="
+      background-image: linear-gradient(
+          rgba(255, 102, 153, 0.3),
+          rgba(255, 102, 153, 0.3)
+        ),
+        url('{{ storySection.backgroundImage }}');
+    "
+  >
+    <div class="about-text---left">
+      <div class="about-text-block">
+        <img
+          src="{{ storySection.image }}"
+          alt=""
+          sizes="(max-width: 479px) 30vw, (max-width: 767px) 32vw, (max-width: 991px) 33vw, 35vw"
+          class="image-3"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="about--main">
+    <div class="columns w-row">
+      <div class="column-2 w-col w-col-6">
+        <img
+          src="{{ MainSection.aboutImage }}"
+          width="375"
+          alt=""
+          sizes="(max-width: 479px) 78vw, (max-width: 767px) 63vw, (max-width: 991px) 38vw, 28vw"
+          class="image-5"
+        />
+      </div>
+      <div class="column-3 w-col w-col-6">
+        <div class="div-block-11">
+          <div class="text-block-2">
+            <strong class="bold-text">{{ MainSection.heading }}<br /></strong>
+            {{ content | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

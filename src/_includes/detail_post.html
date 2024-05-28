@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %} {% set previousPost = collections.posts |
+getPreviousCollectionItem %} {% set nextPost = collections.posts |
+getNextCollectionItem %} {% block content %}
+
+<div>
+  <div>
+    <div class="inner-hero all-post">
+      <div class="container w-container" data-ix="blog-tile-ease-down">
+        <img
+          src="/images/textBlogPost.png"
+          width="200"
+          alt=""
+          srcset="
+            /images/textBlogPost-p-500.png  500w,
+            /images/textBlogPost-p-800.png  800w,
+            /images/textBlogPost.png       6051w
+          "
+          sizes="200px"
+          class="image-13"
+        />
+      </div>
+      <div class="div-block-7"></div>
+    </div>
+  </div>
+  <div class="blog--main">
+    <div class="text-block-7">{{ date | date }}</div>
+    <h1 class="heading-8">{{ title }}</h1>
+    <div class="rich-text-block-2 w-richtext"></div>
+    <div style="max-width: 900px; margin-left: auto; margin-right: auto">
+      {{ content | safe }}
+    </div>
+    <div class="w-container">
+      <div class="w-row">
+        {% if previousPost %}
+        <div class="w-col w-col-6">
+          <a href="{{ previousPost.url }}" class="button-2 w-button"
+            >Previous Post</a
+          >
+        </div>
+        {% endif %} {% if nextPost %}
+        <div class="w-col w-col-6">
+          <a href="{{ nextPost.url }}" class="button-2 w-button">Next Post</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="html-embed-2 w-embed w-script">
+      <script src="https://www.powr.io/powr.js?external-type=html"></script>
+      <div class="powr-comments" id="06abb86b_1545061706"></div>
+    </div>
+    <div class="w-container">
+      <h1 class="heading-13">Related Post</h1>
+      <div class="w-dyn-list">
+        <div role="list" class="w-dyn-items w-row">
+          {% for posts in collections.posts %}
+          <div
+            role="listitem"
+            class="blog-thumbnail w-dyn-item w-col w-col-3"
+            data-ix="blogtile-2"
+          >
+            <a
+              href="{{ posts.url }}"
+              class="thumbnail-wrapper w-inline-block"
+              data-ix="blog-post-pop-on-scroll-2"
+            >
+              <div class="image-wrapper">
+                <div
+                  style="background-image: url('{{ posts.data.image }}')"
+                  class="thumbnail-image"
+                ></div>
+              </div>
+              <div class="thumbnail-text">
+                <div class="blog-text">{{ posts.data.title }}</div>
+              </div>
+              <div class="thumb-details w-clearfix">
+                <div class="thumbnail-date">
+                  <time datetime="{{ posts.date | w3DateFilter  }}"
+                    >{{ posts.date | w3DateFilter }}</time
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
