@@ -1,0 +1,47 @@
+{% extends "layouts/base.html" %} {% block content %} {% set posts =
+collections.posts | reverse %}
+<div>
+  <div>
+    <div class="inner-hero all-post">
+      <div class="container w-container">
+        <img
+          src="{{ blogsection.image }}"
+          width="200"
+          alt=""
+          sizes="200px"
+          class="image-12"
+        />
+      </div>
+      <div class="div-block-7"></div>
+    </div>
+  </div>
+  <div class="w-dyn-list">
+    <div role="list" class="collection-list-3 w-dyn-items w-row">
+      {% for posts in posts %}
+      <div role="listitem" class="thumbnail w-dyn-item w-col w-col-4">
+        <a
+          href="{{ posts.url }}"
+          class="featured-wrapper w-inline-block"
+          data-ix="blogtile"
+        >
+          <div>
+            <div class="cateorgy-date-tag">{{ posts.date | date }}</div>
+            <div
+              class="featured-image"
+              style="background-image: url('{{ posts.data.image }}')"
+            ></div>
+          </div>
+          <div class="feature-text">
+            <div class="feature-details">
+              <div></div>
+            </div>
+            <h1 class="featured-tile">{{ posts.data.title }}</h1>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

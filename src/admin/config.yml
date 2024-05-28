@@ -1,0 +1,308 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "dist/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - {
+          name: "layout",
+          label: "Layout",
+          widget: "hidden",
+          default: "detail_post.html",
+        }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: body, label: Post Content, widget: markdown }
+      - { name: image, label: Image, widget: image }
+      - { label: "Tags", name: "tags", widget: "hidden", required: false }
+
+  - name: "radios"
+    label: "Radio Posts"
+    folder: "src/radio-posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - {
+          name: "layout",
+          label: "Layout",
+          widget: "hidden",
+          default: "radio_post.html",
+        }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: thumbnail, label: Thumbnail, widget: image }
+      - {
+          name: videoEmbededlink,
+          label: Embedded Video Url,
+          widget: string,
+          pattern: ['"^[^"]*$', 'Please remove quotes (" ") from the field.'],
+        }
+      - { label: "Tags", name: "tags", widget: "hidden", required: false }
+
+  - name: "tvs"
+    label: "Tv Host Posts"
+    folder: "src/tv-posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - {
+          name: "layout",
+          label: "Layout",
+          widget: "hidden",
+          default: "tv-host_post.html",
+        }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: thumbnail, label: Thumbnail, widget: image }
+      - {
+          name: videoEmbededlink,
+          label: Embedded Video Url Src,
+          widget: string,
+          pattern: ['"^[^"]*$', 'Please remove quotes ("") from the field.'],
+        }
+      - { label: "Tags", name: "tags", widget: "hidden", required: false }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "src/index.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/index.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+
+          - {
+              name: "intro",
+              label: "Introduction Section",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Video",
+                    name: "videoGif",
+                    widget: "file",
+                  },
+                  { label: "Intro Heading", name: "heading", widget: "string" },
+                  {
+                    label: "Button Text",
+                    name: "buttonText",
+                    widget: "string",
+                  },
+                ],
+            }
+          - { label: "Short Description", name: "body", widget: "markdown" }
+          - {
+              name: "about",
+              label: "About Section",
+              widget: "object",
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: "string" },
+                  { label: "About Image", name: "image", widget: "image" },
+                ],
+            }
+
+      - label: "TV Host "
+        name: "tv-host"
+        file: "src/tv-host.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/tv-host.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              name: "TvhostSection",
+              label: "Tv host Intro",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Image",
+                    name: "backgroundImage",
+                    widget: "string",
+                  },
+                  { label: "Text Image", name: "image", widget: "image" },
+                ],
+            }
+
+      - label: "About"
+        name: "about"
+        file: "src/story.md"
+
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              label: "Background Image",
+              name: "backgroundImage",
+              widget: "image",
+            }
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/story.html",
+            }
+          - {
+              name: "storySection",
+              label: "Story Intro",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Image",
+                    name: "backgroundImage",
+                    widget: "string",
+                  },
+                  { label: "Text Image", name: "image", widget: "image" },
+                ],
+            }
+          - {
+              name: "MainSection",
+              label: "Story Main Section",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Image",
+                    name: "aboutImage",
+                    widget: "image",
+                  },
+                  { label: "Heading", name: "heading", widget: "string" },
+                  { label: "Body", name: "body", widget: "markdown" },
+                ],
+            }
+
+      - label: "Kazi"
+        name: "kazi"
+        file: "src/kazi.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/kazi.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              label: "Background Image",
+              name: "backgroundImage",
+              widget: "image",
+            }
+          - {
+              name: "mainSection",
+              label: "Kazi Main Section",
+              widget: "object",
+              fields:
+                [
+                  { label: "Kazi Logo", name: "image1", widget: "image" },
+                  { label: "Kazi Url", name: "image1Url", widget: "string" },
+                  { label: "Image", name: "image2", widget: "image" },
+                ],
+            }
+
+      - label: "Blog"
+        name: "blog"
+        file: "src/all-post.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/all-post.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              name: "blogsection",
+              label: "Blog Into Section",
+              widget: "object",
+              fields: [{ label: "Text Image", name: "image", widget: "image" }],
+            }
+
+      - label: "Radio "
+        name: "radio"
+        file: "src/radio.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/radio.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              name: "RadioSection",
+              label: "Radio Intro",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Image",
+                    name: "backgroundImage",
+                    widget: "string",
+                  },
+                  { label: "Text Image", name: "image", widget: "image" },
+                ],
+            }
+
+      - label: "Contact"
+        name: "contact"
+        file: "src/contact.md"
+        fields:
+          - {
+              name: "layout",
+              label: "Layout",
+              widget: "hidden",
+              default: "layouts/contact.html",
+            }
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - {
+              name: "contact",
+              label: "Contact Intro",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Background Image",
+                    name: "backgroundImage",
+                    widget: "string",
+                  },
+                  { label: "Text Image", name: "image", widget: "image" },
+                ],
+            }
+          - {
+              name: "contactSocials",
+              label: "Socials",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Facebook Url",
+                    name: "facebookLink",
+                    widget: "string",
+                  },
+                  {
+                    label: "Instagram Url",
+                    name: "instagramLink",
+                    widget: "string",
+                  },
+                  {
+                    label: "linkedIn Url",
+                    name: "linkedInLink",
+                    widget: "string",
+                  },
+                ],
+            }

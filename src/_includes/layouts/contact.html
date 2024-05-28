@@ -1,0 +1,118 @@
+
+{% extends "layouts/base.html" %} {% block content %}
+<div>
+    <div class="inner-hero contact" style="background-image: url('{{ contact.backgroundImage }}');"  >
+        <div class="container w-container"></div>
+        <div class="div-block-7">
+          <img
+            src="{{ contact.image }}"
+            width="347"
+            alt=""
+            class="image-3"
+          />
+        </div>
+      </div>
+      <div class="about-text---left">
+        <div class="about-text-block"></div>
+      </div>
+    </div>
+    <div class="contact-main">
+      <div class="columns w-row">
+        <div class="column-2 w-col w-col-6 w-col-small-small-stack w-col-stack">
+          <div class="contact-block w-clearfix">
+            <div class="contact-block-image">
+              <div class="contact-block-image-overlay">
+                <div class="contact-avatar"></div>
+                <div class="social-links">
+                  <a
+                    href="{{ contactSocials.facebookLink }}"
+                    target="_blank"
+                    class="social-block w-inline-block"
+                    ><img
+                      src="/images/56e2dcffc8b00f8247107214_Icon-facebook.png"
+                      alt=""
+                      class="image-15"
+                  /></a>
+                  <a
+                    href="{{ contactSocials.instagramLink }}"
+                    target="_blank"
+                    class="social-block w-inline-block"
+                    ><img src="/images/instagram-1.png" alt="" class="image-15"
+                  /></a>
+                  <a
+                    href="{{ contactSocials.linkedInLink }}"
+                    target="_blank"
+                    class="social-block w-inline-block"
+                    ><img
+                      src="/images/56e2dcffc8b00f8247107212_Icon-linkedin.png"
+                      alt=""
+                      class="image-15"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-content-block w-hidden-tiny">
+              <h1 class="heading-9">Let&#x27;s Connect</h1>
+              <h1 class="heading-10">Rheisha Shol</h1>
+            </div>
+          </div>
+        </div>
+        <div class="column-3 w-col w-col-6 w-col-small-small-stack w-col-stack">
+          <div class="form-block w-form">
+            <form
+              id="email-form"
+              name="email-form"
+              data-name="Email Form"
+              method="get"
+              class="form"
+              data-wf-page-id="5bb0ff22bf0234bf293a7261"
+              data-wf-element-id="c1869193-fffb-ff2b-5542-46c8fd647ed1"
+            >
+              <div class="contanct-tagline">
+                Want to work together or have a question? <br />
+              </div>
+              <h1 class="heading-4">Stay In Touch With Me</h1>
+              <input
+                class="text-field-2 w-input"
+                maxlength="256"
+                name="name"
+                data-name="Name"
+                placeholder="Enter your name"
+                type="text"
+                id="name"
+              /><input
+                class="text-field-2 w-input"
+                maxlength="256"
+                name="email"
+                data-name="Email"
+                placeholder="Enter you email address "
+                type="text"
+                id="email"
+                required=""
+              /><textarea
+                id="message"
+                name="message"
+                placeholder="Enter your message"
+                maxlength="5000"
+                data-name="message"
+                class="textarea w-input"
+              ></textarea
+              ><input
+                type="submit"
+                data-wait="Please wait..."
+                class="submit-button w-button"
+                value="Submit"
+              />
+            </form>
+            <div class="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

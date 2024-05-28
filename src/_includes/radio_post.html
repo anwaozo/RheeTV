@@ -1,0 +1,60 @@
+{% extends "layouts/base.html" %} {% set previousRadio = collections.radios |
+getPreviousCollectionItem %} {% set nextRadio = collections.radios |
+getNextCollectionItem %} {% block content %}
+<div>
+  <div id="Top" class="inner-hero all-post">
+    <div class="container w-container"></div>
+
+    <img
+      src="/images/text on air.png"
+      width="200"
+      class="image-12"
+      sizes="200px"
+      alt=""
+    />
+  </div>
+  <div class="radio-main w-clearfix">
+    <div class="w-container">
+      <div class="row w-row">
+        <div
+          style="
+            max-width: 900px;
+            height: 315;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          <iframe
+            id="youtube-iframe"
+            style="aspect-ratio: 16/9; width: 100%"
+            width="100%"
+            src="{{ videoEmbededlink }}"
+            title="YouTube video player"
+            frameborder="0"
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+        <h1 class="heading-5">{{ title }}</h1>
+      </div>
+    </div>
+    <div class="w-container">
+      <div class="w-row">
+        {% if previousRadio %}
+        <div class="w-col w-col-6">
+          <a href="{{ previousRadio.url }}" class="button-2 w-button"
+            >Previous Radio</a
+          >
+        </div>
+        {% endif %} {% if nextRadio %}
+        <div class="w-col w-col-6">
+          <a href="{{ nextRadio.url }}" class="button-2 w-button">Next Radio</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

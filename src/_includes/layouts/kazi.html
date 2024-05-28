@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %} {% block content %}
+<div>
+  <div>
+    <div class="inner-hero all-post">
+      <div class="container w-container"></div>
+      <div class="div-block-7"></div>
+    </div>
+  </div>
+  <header id="hero" class="hero">
+    <div class="flex-container w-container">
+      <div class="hero-image-mask">
+        <a
+          href="{{ mainSection.image1Url }}"
+          target="_blank"
+          class="w-inline-block"
+          ><img src="{{ mainSection.image1 }}" alt="" class="hero-image"
+        /></a>
+      </div>
+    </div>
+    <div class="flex-container w-container">
+      <div class="hero-image-mask">
+        <img
+          src="{{ mainSection.image2 }}"
+          sizes="(max-width: 479px) 83vw, (max-width: 767px) 46vw, 512px"
+          alt=""
+          class="hero-image"
+        />
+      </div>
+    </div>
+  </header>
+</div>
+{% endblock %}

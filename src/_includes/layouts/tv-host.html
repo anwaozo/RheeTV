@@ -1,0 +1,67 @@
+{% extends "layouts/base.html" %} {% block content %}
+{% set tvs =
+  collections.tvs | reverse %}
+<div>
+  <div
+    id="Top"
+    class="inner-hero host"
+    style="background-image: url('{{ TvhostSection.backgroundImage }}')"
+  >
+    <div class="container w-container"></div>
+    <div class="div-block-7">
+      <img
+        src="{{ TvhostSection.image }}"
+        width="347"
+        alt=""
+        sizes="(max-width: 767px) 50vw, 347px"
+        class="image-3"
+      />
+    </div>
+  </div>
+</div>
+<div class="tv-host-section w-clearfix">
+  <div class="w-container">
+    <div class="row w-row">
+      {% for tvs in tvs %}
+      <a href="{{ tvs.url }}">
+        <div class="w-col w-col-6">
+          <img
+            src="{{ tvs.data.thumbnail }}"
+            sizes="(max-width: 479px) 96vw, (max-width: 767px) 67vw, (max-width: 991px) 39vw, 41vw"
+            alt=""
+            class="image-7"
+          /><img
+            src="/images/youtube.png"
+            width="50"
+            alt=""
+            class="play-image"
+          />
+          <h1 class="heading-5">{{ tvs.data.title }}</h1>
+        </div>
+      </a>
+
+      {% endfor %}
+ </div>
+        <a
+          href="https://www.bigreviewtv.com/"
+          target="_blank"
+          class="link-block-3 w-inline-block"
+          ><img
+            src="/images/Big-review-tv-pink.png"
+            width="350"
+            alt=""
+            srcset="
+              /images/Big-review-tv-pink-p-500.png 500w,
+              /images/Big-review-tv-pink.png       623w
+            "
+            sizes="(max-width: 479px) 92vw, (max-width: 767px) 67vw, 350px"
+            class="image-10"
+        /></a>
+        <div class="text-block-6">© Big Review TV</div>
+      </div>
+      <div class="w-col w-col-2"></div>
+    </div>
+  </div>
+  <a href="#Top" class="button-4 w-button"></a>
+</div>
+{% endblock %}

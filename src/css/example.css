@@ -1,0 +1,7 @@
+.nc-collection-header {
+  top: 50px; /* adjust the value to match your custom header height */
+  position: relative;
+}
+.css-12b66la-AppHeaderContent {
+  display: none;
+}
